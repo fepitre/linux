@@ -244,4 +244,18 @@ static inline bool power_supply_is_watt_property(enum power_supply_property psp)
 	return 0;
 }
 
+static inline bool power_supply_is_str_property(enum power_supply_property psp)
+{
+	switch (psp) {
+	case POWER_SUPPLY_PROP_MODEL_NAME:
+	case POWER_SUPPLY_PROP_MANUFACTURER:
+	case POWER_SUPPLY_PROP_SERIAL_NUMBER:
+		return 1;
+	default:
+		break;
+	}
+
+	return 0;
+}
+
 #endif /* __UAPI_LINUX_POWER_SUPPLY_H__ */
